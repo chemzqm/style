@@ -1,0 +1,24 @@
+{
+  "name": "style",
+  "repository": "chemzqm/style",
+  "description": "component for high performance javascript animation",
+  "version": "0.0.1",
+  "keywords": [],
+  "demo": "http://chemzqm.github.io/style/",
+  "dependencies": {
+  },
+  "development": {
+    "dependencies": {
+      "component/assert": "*"
+    }
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    
+  ]
+}
+
