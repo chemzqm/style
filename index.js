@@ -37,13 +37,15 @@ function Style(el) {
   var v;
   var transforms = [];
   var _props = {};
+  var isList = (typeof el.length !== 'undefined');
+  var els = isList ? el : [el];
   return {
     set: function(props) {
       for (var prop in props) {
         var v = props[prop];
         if (/^rotate/.test(prop)) {
           v = v + 'deg';
-        } else if (typeof v === 'number' && !/^opacity$/.test(prop)) {
+        } else if (typeof v === 'number' && prop !== 'opacity') {
           v = v + 'px';
         }
         if (transformProps.indexOf(prop) !== -1) {
@@ -55,13 +57,15 @@ function Style(el) {
       if (transforms.length) {
         _props[prefix.js + 'Transform'] = transforms.join(' ');
       }
-      //set all properties once
-      for (var p in _props) {
-        el.style[p] = _props[p];
-      }
+      els.forEach(function(el) {
+        //set all properties once
+        for (var p in _props) {
+          el.style[p] = _props[p];
+        }
+      })
     },
     get: function (prop) {
-      v = el.style[prop];
+      v = els[0].style[prop];
       if (v) return (/^-?\d+(px|s)?$/.test(v)) ? parseInt(v) : v;
       if (transformProps.indexOf(prop) !== -1) {
         var transform = el.style[prefix.js + 'Transform'];

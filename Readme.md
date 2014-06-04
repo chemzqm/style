@@ -25,3 +25,18 @@ number properties will be suffixed with `px`.
 
 **note**, to gain better performance while scrolling (get styles would cause a reflow), other transform properties will not be preserved!
 
+## API
+
+### style(el | els)
+
+Init with node or nodeList.
+
+### .get(prop)
+
+Get style with css property name. Property name could be javascript style property or properties from `getComputedStyle`.
+
+It should be prefixed if prop name is javascript style property.
+
+### .set(props)
+
+Set style with object, 
