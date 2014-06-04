@@ -65,10 +65,11 @@ function Style(el) {
       })
     },
     get: function (prop) {
-      v = els[0].style[prop];
-      if (v) return (/^-?\d+(px|s)?$/.test(v)) ? parseInt(v) : v;
+      var node = els[0];
+      v = node.style[prop];
+      if (v) return parseProperty(v);
       if (transformProps.indexOf(prop) !== -1) {
-        var transform = el.style[prefix.js + 'Transform'];
+        var transform = node.style[prefix.js + 'Transform'];
         if (!transform) return;
         var reg = new RegExp(prop + '\\((.+?)\\)');
         v = transform.match(reg)[1];
@@ -76,8 +77,12 @@ function Style(el) {
       }
       var p = stylesMap[prop];
       if (!p) throw new Error('css ' + prop + ' is not supported');
-      v = style(el).getPropertyValue(p);
-      return (/^-?\d+(px|s)$/.test(v)) ? parseInt(v) : v;
+      v = style(node).getPropertyValue(p);
+      return parseProperty(v);
     }
   }
+}
+
+function parseProperty(v) {
+  return (/^-?\d+(px|s)?$/.test(v)) ? parseInt(v, 10) : v;
 }

@@ -37,6 +37,8 @@ Get style with css property name. Property name could be javascript style proper
 
 It should be prefixed if prop name is javascript style property.
 
+It return number if prop is number property.
+
 ### .set(props)
 
-Set style with object, 
+Set styles with object, number values is automaticly suffixed.
