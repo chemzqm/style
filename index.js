@@ -29,7 +29,7 @@ var stylesMap = (function () {
 
 var transformProps = ['rotate', 'rotateX', 'rotateY', 'rotateZ',
   'translate', 'translateX', 'translateY', 'translateZ',
-  'skew', 'skewX', 'skewY'];
+  'skew', 'skewX', 'skewY', 'scaleX', 'scaleY', 'scaleZ', 'scale'];
 
 module.exports = Style;
 
