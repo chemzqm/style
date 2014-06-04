@@ -45,7 +45,7 @@ function Style(el) {
         var v = props[prop];
         if (/^rotate/.test(prop)) {
           v = v + 'deg';
-        } else if (typeof v === 'number' && prop !== 'opacity') {
+        } else if (typeof v === 'number' && !/^(scale|opacity)/.test(prop)) {
           v = v + 'px';
         }
         if (transformProps.indexOf(prop) !== -1) {
