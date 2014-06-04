@@ -50,6 +50,8 @@ describe('get should works', function () {
     });
     var rotate = style(el).get('rotate');
     var top = style(el).get('top');
+    console.log(rotate);
+    console.log(top);
     assert(rotate === 60);
     assert(top === 10);
   })
