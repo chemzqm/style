@@ -72,8 +72,11 @@ function Style(el) {
         var transform = node.style[prefix.js + 'Transform'];
         if (!transform) return;
         var reg = new RegExp(prop + '\\((.+?)\\)');
-        v = transform.match(reg)[1];
-        return /,/.test(v)? v: parseInt(v, 10);
+        var match = transform.match(reg);
+        if (!match) {
+          return /^scale/.test(prop) ? 1 : 0;
+        }
+        return parseInt(match[1], 10);
       }
       var p = stylesMap[prop];
       if (!p) throw new Error('css ' + prop + ' is not supported');
