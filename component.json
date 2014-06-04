@@ -2,7 +2,7 @@
   "name": "style",
   "repository": "chemzqm/style",
   "description": "component for high performance javascript animation",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [],
   "demo": "http://chemzqm.github.io/style/",
   "dependencies": {
